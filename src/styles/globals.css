@@ -39,7 +39,7 @@
 }
 
 .head_text {
-  @apply mt-5 text-5xl font-battambang font-bold leading-[1.15] text-black sm:text-6xl text-shadow-lg;
+  @apply mt-5 text-5xl font-battambang font-black leading-[1.15] text-black sm:text-6xl text-shadow-lg;
 }
 
 .magenta_gradient {
@@ -90,7 +90,7 @@
 
 /* Nav Component */
 .logo_text {
-  @apply max-sm:hidden font-battambang font-medium tracking-tighter text-3xl text-black;
+  @apply max-sm:hidden font-battambang font-light tracking-tighter text-3xl text-black;
 }
 
 .dropdown {
