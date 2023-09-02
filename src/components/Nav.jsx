@@ -17,14 +17,14 @@ const Nav = () => {
 	}, [])
 	return (
 		<nav className="flex-between w-full mb-16 pt-3">
-			<Link href="/" className="flex gap-2 flex-center">
+			<Link href="/" className="flex gap-1 flex-center">
 				<Image 
 					src="/assets/images/logo.svg"
-					width={37}
-					height={37}
+					width={35}
+					height={35}
 					alt="Eventually Logo"
 				/>
-				<p className="logo_text">Eventually</p>
+				<p className="logo_text pt-1">Eventually</p>
 			</Link>
 
 			<div className="sm:flex hidden">
@@ -48,8 +48,8 @@ const Nav = () => {
 						<Link href="/profile">
 							<Image 
 								src="/assets/images/profile.svg"
-								width={37}
-								height={37}
+								width={35}
+								height={35}
 								className="rounded-full"
 								alt="Profile"
 							/> 

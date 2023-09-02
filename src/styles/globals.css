@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@200;400;500;600&family=Arima:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&family=Montserrat:wght@200;300;400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,7 +15,7 @@
   background-color: #f4ebcf;
   opacity: 0.5;
   background-image: radial-gradient(#84643f 0.5px, #f4ebcf 0.5px);
-  background-size: 10px 10px;
+  background-size: 15px 15px;
 }
 
 @media screen and (max-width: 640px) {
@@ -31,15 +31,15 @@
 }
 
 .magenta_btn {
-  @apply rounded-full border border-black bg-magenta py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-barlow flex items-center justify-center;
+  @apply rounded-full border border-black bg-magenta py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-montserrat flex items-center justify-center;
 }
 
 .outline_btn {
-  @apply rounded-full border border-black bg-transparent py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-barlow flex items-center justify-center;
+  @apply rounded-full border border-black bg-transparent py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-montserrat flex items-center justify-center;
 }
 
 .head_text {
-  @apply mt-5 text-5xl font-arima font-bold leading-[1.15] text-black sm:text-6xl drop-shadow-2xl;
+  @apply mt-5 text-5xl font-battambang font-bold leading-[1.15] text-black sm:text-6xl text-shadow-lg;
 }
 
 .magenta_gradient {
@@ -55,11 +55,11 @@
 }
 
 .desc {
-  @apply mt-5 text-base text-gray-600 text-opacity-40 font-barlow sm:text-xl max-w-2xl;
+  @apply mt-5 text-base text-gray-600 text-opacity-40 font-montserrat sm:text-xl max-w-2xl text-shadow-sm;
 }
 
 .search_input {
-  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-battambang pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
 }
 
 .copy_btn {
@@ -90,7 +90,7 @@
 
 /* Nav Component */
 .logo_text {
-  @apply max-sm:hidden font-arima font-normal text-4xl text-black tracking-wide;
+  @apply max-sm:hidden font-battambang font-medium tracking-tighter text-3xl text-black;
 }
 
 .dropdown {
@@ -98,7 +98,7 @@
 }
 
 .dropdown_link {
-  @apply text-sm font-barlow text-gray-700 hover:text-gray-500 font-medium;
+  @apply text-sm font-montserrat text-gray-700 hover:text-gray-500 font-medium;
 }
 
 /* PromptCard Component */
