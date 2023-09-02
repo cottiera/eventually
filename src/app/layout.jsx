@@ -2,24 +2,22 @@ import '@/styles/globals.css'
 import Nav from '@/components/Nav'
 
 export const metadata = {
-    title: "Eventually",
-    description: "Plan Events Better"
+  title: "Eventually",
+  description: "Plan Events Better"
 }
 
 function RootLayout({ children }) {
   return (
-    <html lang='en'>
-        <body>
-            <div className="main">
-                <div className="gradient" />
-            </div>
+  <html lang='en'>
+    <body>
+      <div className="main" />
 
-            <main className="app">
-                <Nav />
-                {children}
-            </main>
-        </body>
-    </html>
+      <main className="app">
+        <Nav />
+        {children}
+      </main>
+    </body>
+  </html>
   )
 }
 

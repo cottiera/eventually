@@ -8,11 +8,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        arima: ['Arima', 'cursive'],
+        barlow: ['Barlow', 'sans-serif'],
         satoshi: ['Satoshi', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
       },
       colors: {
-        'primary-orange': '#FF5722',
+        'magenta': '#993957',
+        'medium-pink': '#c45a7b',
+        'light-pink': '#cf7691'
       }
     },
   },
