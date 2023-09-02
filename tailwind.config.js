@@ -17,7 +17,10 @@ module.exports = {
       colors: {
         'magenta': '#993957',
         'medium-pink': '#c45a7b',
-        'light-pink': '#cf7691'
+        'light-pink': '#cf7691',
+        'primary-blue': '#4d869e',
+        'medium-blue': '#3e6778',
+        'light-blue': '#76a2b5'
       },
       textShadow: {
         sm: '0 1px 2px rgb(0 0 0/ 10%)',
