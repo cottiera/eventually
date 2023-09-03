@@ -22,8 +22,19 @@ const MyProfile = () => {
   const handleEdit = (event) => {
     router.push(`/update-event?id=${event._id}`)
   }
-  const handleDelete = (event) => {
-    
+  const handleDelete = async (event) => {
+    const hasConfirmed = confirm("This action can not be reversed. Are you sure you want to delete this Eventually event?")
+    if(hasConfirmed) {
+      try {
+        await fetch(`api/event/${event._id.toString()}`, {
+          method: 'DELETE'
+        })
+        const filteredEvents = events.filter((v) => v._id !== event._id)
+        setEvents(filteredEvents)
+      } catch (error) {
+        console.log(error)
+      }
+    }
   }
   return (
   <Profile 
