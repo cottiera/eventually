@@ -54,6 +54,10 @@
   @apply bg-gradient-to-r from-medium-pink via-magenta to-light-pink bg-clip-text text-transparent;
 }
 
+.secondary_magenta_gradient {
+  @apply bg-gradient-to-r from-magenta via-medium-pink to-light-pink bg-clip-text text-transparent;
+}
+
 .green_gradient {
   @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
 }

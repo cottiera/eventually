@@ -3,14 +3,15 @@
 import { useState, useEffect } from 'react'
 import EventCard from './EventCard'
 
-const EventCardList = ({ data, handleTagClick }) => {
+const EventCardList = ({ data, viewTag, viewProfile }) => {
   return (
     <div className="mt-10 event_layout">
       {data.map((event) => (
         <EventCard 
           key={event._id}
           event={event}
-          handleTagClick={handleTagClick}
+          viewTag={viewTag}
+          viewProfile={viewProfile}
         />
       ))}
     </div>
@@ -44,7 +45,8 @@ const Feed = () => {
     </form>
     <EventCardList 
       data={events}
-      handleTagClick={() => {}}
+      viewTag={() => {}}
+      viewProfile={() => {}}
     />
   </section>
   )

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 import { usePathname, useRouter } from 'next/navigation'
 
-const EventCard = ({ event, viewTag, viewProfile, handleEdit, handleDelete }) => {
+const DashboardCard = ({ event, viewTag, viewProfile, handleEdit, handleDelete }) => {
   const { data: session } = useSession()
   const pathName = usePathname()
   const router = useRouter()
@@ -39,6 +39,21 @@ const EventCard = ({ event, viewTag, viewProfile, handleEdit, handleDelete }) =>
       <p className="my-4 font font-montserrat text-sm text-gray-500">
         {event.description}
       </p>
+      <p className="my-4 font font-montserrat text-sm text-gray-500">
+        {event.location}
+      </p>
+      <p className="my-4 font font-montserrat text-sm text-gray-500">
+        {event.attendees}
+      </p>
+      <p className="my-4 font font-montserrat text-sm text-gray-500">
+        {event.budget}
+      </p>
+      <p className="my-4 font font-montserrat text-sm text-gray-500">
+        {event.theme}
+      </p>
+      <p className="my-4 font font-montserrat text-sm text-gray-500">
+        {event.tag}
+      </p>
       <p 
         className="font-montserrat text-sm blue_gradient cursor-pointer"
         onClick={() => viewTag && handleTagClick(event.tag)}
@@ -66,4 +81,4 @@ const EventCard = ({ event, viewTag, viewProfile, handleEdit, handleDelete }) =>
   )
 }
 
-export default EventCard
+export default DashboardCard

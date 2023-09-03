@@ -1,58 +1,48 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import Form from '@/components/Form'
+import Dashboard from '@/components/Dashboard'
 
-const Dashboard = () => {
-  const [submitting, setSubmitting] = useState(false)
-  const [event, setEvent] = useState({
-    eventName: '',
-    description: '',
-    location: '',
-    attendees: '',
-    budget: '',
-    theme: '',
-    tag: ''
-  })
-  const createEvent = async (e) => {
-    const router = useRouter()
-    const { data: session } = useSession()
-    e.preventDefault()
-    setSubmitting(true)
-    try {
-      const response = await fetch('api/event/new', {
-        method: 'POST',
-        body: JSON.stringify({
-          name: event.eventName,
-          userId: session?.user.id,
-          description: event.description,
-          location: event.location,
-          attendees: event.attendees,
-          budget: event.budget,
-          theme: event.theme,
-          tag: event.tag
-        })
-      })
-      if(response.ok) {
-        router.push('/')
-      }
-    } catch (error) {
-      console.log(error)
-    } finally {
-      setSubmitting(false)
+const MyDashboard = () => {
+  const { data: session } = useSession()
+  const [events, setEvents] = useState([])
+  const router = useRouter()
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const response = await fetch(`/api/users/${session?.user.id}/events`)
+      const data = await response.json()
+      setEvents(data)
     }
-  }
+    if(session?.user.id){
+      fetchEvents()
+    }
+    }, [])
+    const handleEdit = (event) => {
+      router.push(`/update-event?id=${event._id}`)
+    }
+    const handleDelete = async (event) => {
+      const hasConfirmed = confirm("This action can not be reversed. Are you sure you want to delete this Eventually event?")
+      if(hasConfirmed) {
+        try {
+          await fetch(`api/event/${event._id.toString()}`, {
+            method: 'DELETE'
+          })
+          const filteredEvents = events.filter((v) => v._id !== event._id)
+          setEvents(filteredEvents)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    }
   return (
-    <Form 
-      type="Create"
-      event={event}
-      setEvent={setEvent}
-      submitting={submitting}
-      handleSubmit={createEvent}
+    <Dashboard 
+      data={events}
+      handleEdit={handleEdit}
+      handleDelete={handleDelete}
     />
   )
 }
 
-export default Dashboard
+export default MyDashboard
