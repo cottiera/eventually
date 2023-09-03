@@ -19,7 +19,6 @@ const CreateEvent = () => {
     tag: ''
   })
   const createEvent = async (e) => {
-    console.log('submitted')
     e.preventDefault()
     setIsSubmitting(true)
     try {

@@ -1,4 +1,4 @@
-import EventSelect from '@/components/EventSelect'
+import Feed from '@/components/Feed'
 
 const Homepage = () => {
   return (
@@ -11,8 +11,7 @@ const Homepage = () => {
       <p className="desc text-center">
         Effortlessly plan, organize, and create unforgettable moments with our all-in-one event planning platform 
       </p>
-
-      <EventSelect />
+      <Feed />
     </section>
   )
 }
