@@ -1,34 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Eventually 🎉
 
-## Getting Started
+Eventually is a powerful online event planning application that makes it easy for users to organize and manage their events. With Eventually, you can create, customize, and share your events with friends, family, or colleagues. The app is built using modern technologies, including Next.js, Tailwind CSS, the Next.js integrated API for backend functionality, and MongoDB for data storage. It also offers seamless Google login integration for a personalized experience.
 
-First, run the development server:
+## Features ✨
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- **Create Events**: Easily create events with essential details such as name, description, location, number of attendees, budget, theme, and hashtags to give your event a unique identity.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **User Authentication**: Log in securely using your Google account, ensuring a hassle-free and personalized experience.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Profile Page**: Update information, delete unwanted events, and see what others see when they click on your profile!
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Dashboard**: Your personalized dashboard provides an overview of your created events, making it easy to edit and delete all of your plans in one place.
 
-## Learn More
+- **Event Feed**: Stay updated with the latest events created by others in the community. View the profile of other avid event planners, filter events by useful hashtags, and discover exciting events to attend.
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack 🛠️
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Frontend**: Developed with [Next.js](https://nextjs.org/) and written in [React JSX](https://legacy.reactjs.org/docs/introducing-jsx.html) for a smooth and interactive user interface. Styled using [Tailwind CSS](https://tailwindcss.com/) for a modern and responsive design.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Backend**: Utilizes the integrated API capabilities of Next.js to manage user authentication and event data.
 
-## Deploy on Vercel
+- **Database**: Stores event and user data efficiently using [MongoDB](https://www.mongodb.com/).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Getting Started 🚀
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To get started with Eventually, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/cottiera/eventually.git
+   cd eventually
+
+2. Run the development server:
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    ```
+
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
