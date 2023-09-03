@@ -32,7 +32,7 @@ const Nav = () => {
 				{session?.user ? (
 					<div className="flex gap-3 md:gap-5">
 						<Link 
-							href="/dashboard" 
+							href="/create-event" 
 							className="magenta_btn"
 						>
 							Dashboard
@@ -96,7 +96,7 @@ const Nav = () => {
                   My Profile
                 </Link>
                 <Link
-                  href="/dashboard"
+                  href="/create-event"
                   className="dropdown_link"
                   onClick={() => setToggleDropdown(false)}
                 >

@@ -5,8 +5,10 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Form from '@/components/Form'
 
-const Dashboard = () => {
-  const [submitting, setSubmitting] = useState(false)
+const CreateEvent = () => {
+  const router = useRouter()
+  const { data: session } = useSession()
+  const [submitting, setIsSubmitting] = useState(false)
   const [event, setEvent] = useState({
     eventName: '',
     description: '',
@@ -17,15 +19,14 @@ const Dashboard = () => {
     tag: ''
   })
   const createEvent = async (e) => {
-    const router = useRouter()
-    const { data: session } = useSession()
+    console.log('submitted')
     e.preventDefault()
-    setSubmitting(true)
+    setIsSubmitting(true)
     try {
-      const response = await fetch('api/event/new', {
+      const response = await fetch("api/event/new", {
         method: 'POST',
         body: JSON.stringify({
-          name: event.eventName,
+          eventName: event.eventName,
           userId: session?.user.id,
           description: event.description,
           location: event.location,
@@ -41,7 +42,7 @@ const Dashboard = () => {
     } catch (error) {
       console.log(error)
     } finally {
-      setSubmitting(false)
+      setIsSubmitting(false)
     }
   }
   return (
@@ -55,4 +56,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default CreateEvent
