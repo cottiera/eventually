@@ -1,16 +1,16 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 import { usePathname, useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 const DashboardCard = ({ event, viewTag, viewProfile, handleEdit, handleDelete }) => {
   const { data: session } = useSession()
   const pathName = usePathname()
   const router = useRouter()
   return (
-    <div className="event_card">
+    <div className="event_dashboard_card">
       <div className="flex justify-between items-start gap-5">
         <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
           <Image 
@@ -33,36 +33,46 @@ const DashboardCard = ({ event, viewTag, viewProfile, handleEdit, handleDelete }
           </div>
         </div>
       </div>
-      <p className="my-4 font-battambang text-sm text-gray-700">
-        {event.eventName}
-      </p>
-      <p className="my-4 font font-montserrat text-sm text-gray-500">
-        {event.description}
-      </p>
-      <p className="my-4 font font-montserrat text-sm text-gray-500">
-        {event.location}
-      </p>
-      <p className="my-4 font font-montserrat text-sm text-gray-500">
-        {event.attendees}
-      </p>
-      <p className="my-4 font font-montserrat text-sm text-gray-500">
-        {event.budget}
-      </p>
-      <p className="my-4 font font-montserrat text-sm text-gray-500">
-        {event.theme}
-      </p>
-      <p className="my-4 font font-montserrat text-sm text-gray-500">
-        {event.tag}
-      </p>
-      <p 
-        className="font-montserrat text-sm blue_gradient cursor-pointer"
-        onClick={() => viewTag && handleTagClick(event.tag)}
-      >
-        {event.tag}
-      </p>
-
-      { session?.user.id === event.creator._id && pathName === '/profile' && (
-        <div className="mt-5 flex-center gap-4 border-t pt-3">
+      <div>
+        <p className="my-4 font-battambang text-sm text-gray-700">
+          {event.eventName}
+        </p>
+        <p className="my-4 font font-montserrat text-sm text-gray-500">
+          <span className="font-medium text-gray-500/20">Description:</span>
+          <br></br>
+          {event.description}
+        </p>
+        <p className="my-4 font font-montserrat text-sm text-gray-500">
+          <span className="font-medium text-gray-500/20">Location:</span>
+          <br></br>
+          {event.location}
+        </p>
+        <p className="my-4 font font-montserrat text-sm text-gray-500">
+          <span className="font-medium text-gray-500/20"># Of Attendees:</span>
+          <br></br>
+          {event.attendees} Guests
+        </p>
+        <p className="my-4 font font-montserrat text-sm text-gray-500">
+          <span className="font-medium text-gray-500/20">Budget:</span>
+          <br></br>
+          {event.budget}
+        </p>
+        <p className="my-4 font font-montserrat text-sm text-gray-500">
+          <span className="font-medium text-gray-500/20">Theme:</span>
+          <br></br>
+          {event.theme}
+        </p>
+        <p 
+          className="font-montserrat text-sm cursor-pointer"
+          onClick={() => viewTag && handleTagClick(event.tag)}
+        >
+          <span className="font-medium text-gray-500/20">Tag:</span>
+          <br></br>
+          <span className="blue_gradient">{event.tag}</span>
+        </p>
+      </div>
+      { session?.user.id === event.creator._id && pathName === '/dashboard' && (
+        <div className="mt-auto flex-center gap-4 border-t pt-3">
           <p
             className="edit_btn"
             onClick={handleEdit}

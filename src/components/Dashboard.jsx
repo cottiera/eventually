@@ -1,4 +1,5 @@
 import DashboardCard from "./DashboardCard"
+import Link from 'next/link'
 
 const Dashboard = ({ data, handleEdit, handleDelete }) => {
   return (
@@ -9,7 +10,15 @@ const Dashboard = ({ data, handleEdit, handleDelete }) => {
       <p className="desc text-left">
         Create, edit, and visualize all of your creative Eventually events in your personal dashboard 
       </p>
-      <div className="mt-10 event_layout">
+      <div className="mt-5">
+        <Link
+          href="/create-event"
+          className="blue_btn"
+        >
+          Create New Event
+        </Link>
+      </div>
+      <div className="event_layout">
       {data.map((event) => (
         <DashboardCard 
           key={event._id}

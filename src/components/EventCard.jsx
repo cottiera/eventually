@@ -45,23 +45,6 @@ const EventCard = ({ event, viewTag, viewProfile, handleEdit, handleDelete }) =>
       >
         {event.tag}
       </p>
-
-      { session?.user.id === event.creator._id && pathName === '/profile' && (
-        <div className="mt-5 flex-center gap-4 border-t pt-3">
-          <p
-            className="edit_btn"
-            onClick={handleEdit}
-          >
-            Edit
-          </p>
-          <p 
-            className="delete_btn"
-            onClick={handleDelete}
-          >
-            Delete
-          </p>
-        </div>
-      )}
     </div>
   )
 }
