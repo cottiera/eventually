@@ -20,7 +20,8 @@ module.exports = {
         'light-pink': '#cf7691',
         'primary-blue': '#4d869e',
         'medium-blue': '#3e6778',
-        'light-blue': '#76a2b5'
+        'light-blue': '#76a2b5',
+        'main-bg': '#f4ebcf'
       },
       textShadow: {
         sm: '0 1px 2px rgb(0 0 0/ 10%)',
