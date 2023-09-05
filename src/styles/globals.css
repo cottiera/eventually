@@ -97,7 +97,7 @@
 }
 
 .logo_text {
-  @apply max-sm:hidden font-battambang font-light tracking-tighter text-3xl text-black;
+  @apply max-sm:hidden font-light font-battambang tracking-tighter text-4xl text-black;
 }
 
 .dropdown {
