@@ -9,7 +9,7 @@ const Homepage = () => {
         <span className="magenta_gradient text-center">Eventually</span>
       </h1>
       <p className="desc text-center">
-        Effortlessly plan, organize, and create unforgettable moments with our all-in-one event planning platform 
+        Effortlessly plan, share, and create unforgettable moments with our all-in-one event planning platform 
       </p>
       <Feed />
     </section>
