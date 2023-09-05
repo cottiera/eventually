@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import Dashboard from '@/components/dashboard'
+import Dashboard from '@/components/Dashboard'
 
 const MyDashboard = () => {
   const { data: session } = useSession()

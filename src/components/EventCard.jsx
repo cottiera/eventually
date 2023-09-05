@@ -1,14 +1,21 @@
 "use client"
 
-import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 import { usePathname, useRouter } from 'next/navigation'
 
-const EventCard = ({ event, viewTag, viewProfile, handleEdit, handleDelete }) => {
+const EventCard = ({ event, viewTag }) => {
   const { data: session } = useSession()
   const pathName = usePathname()
   const router = useRouter()
+
+  const viewProfile = () => {
+    if (event.creator._id === session?.user.id) {
+      return router.push("/profile")
+    }
+    router.push(`/profile/${event.creator._id}?name=${event.creator.username}`)
+  }
+
   return (
     <div className="event_card">
       <div className="flex justify-between items-start gap-5">
@@ -25,7 +32,7 @@ const EventCard = ({ event, viewTag, viewProfile, handleEdit, handleDelete }) =>
               className="font-battambang font-semibold text-gray-900 cursor-pointer"
               onClick={() => viewProfile && viewProfile(event.creator.username)}
             >
-              {event.creator.username}
+              @{event.creator.username}
             </h3>
             <p className="font-montserrat text-sm text-gray-500">
               {event.creator.email}
