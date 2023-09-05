@@ -18,6 +18,7 @@ const CreateEvent = () => {
     theme: '',
     tag: ''
   })
+
   const createEvent = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
@@ -44,6 +45,7 @@ const CreateEvent = () => {
       setIsSubmitting(false)
     }
   }
+  
   return (
     <Form 
       type="Create"

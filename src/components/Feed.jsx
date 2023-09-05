@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import EventCard from './EventCard'
 
-const EventCardList = ({ data, viewTag, viewProfile }) => {
+const EventCardList = ({ data, viewTag }) => {
   return (
     <div className="mt-10 event_layout">
       {data.map((event) => (
@@ -11,7 +11,6 @@ const EventCardList = ({ data, viewTag, viewProfile }) => {
           key={event._id}
           event={event}
           viewTag={viewTag}
-          viewProfile={viewProfile}
         />
       ))}
     </div>
@@ -45,8 +44,6 @@ const Feed = () => {
     const searchResult = filterEvents(tagName, 'tag')
     setSearchedResults(searchResult)
   }
-
-  const viewProfile = () => {}
 
   const handleSearchChange = (e) => {
     clearTimeout(searchTimeout)
@@ -83,13 +80,11 @@ const Feed = () => {
       <EventCardList 
         data={searchedResults}
         viewTag={viewTag}
-        viewProfile={viewProfile}
       />
     ) : (
       <EventCardList 
         data={events}
         viewTag={viewTag}
-        viewProfile={viewProfile}
       />
     )}
   </section>

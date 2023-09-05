@@ -9,6 +9,7 @@ const MyProfile = () => {
   const { data: session } = useSession()
   const [events, setEvents] = useState([])
   const router = useRouter()
+  
   useEffect(() => {
     const fetchEvents = async () => {
       const response = await fetch(`/api/users/${session?.user.id}/events`)
@@ -18,10 +19,12 @@ const MyProfile = () => {
     if(session?.user.id){
       fetchEvents()
     }
-    }, [])
+  }, [])
+
   const handleEdit = (event) => {
     router.push(`/update-event?id=${event._id}`)
   }
+
   const handleDelete = async (event) => {
     const hasConfirmed = confirm("This action can not be reversed. Are you sure you want to delete this Eventually event?")
     if(hasConfirmed) {
@@ -36,6 +39,7 @@ const MyProfile = () => {
       }
     }
   }
+
   return (
   <Profile 
     name="My"

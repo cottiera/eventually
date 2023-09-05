@@ -4,7 +4,7 @@ import Provider from '@/components/Provider'
 
 export const metadata = {
   title: "Eventually",
-  description: "Plan Events Better"
+  description: "The Social Event Planner"
 }
 
 function RootLayout({ children }) {

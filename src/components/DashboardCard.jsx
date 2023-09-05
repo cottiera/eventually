@@ -1,14 +1,13 @@
 "use client"
 
-import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 
 const DashboardCard = ({ event, viewTag, viewProfile, handleEdit, handleDelete }) => {
   const { data: session } = useSession()
   const pathName = usePathname()
-  const router = useRouter()
+
   return (
     <div className="event_dashboard_card">
       <div className="flex justify-between items-start gap-5">
