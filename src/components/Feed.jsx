@@ -20,14 +20,50 @@ const EventCardList = ({ data, viewTag, viewProfile }) => {
 
 const Feed = () => {
   const [searchText, setSearchText] = useState('')
+  const [searchTimeout, setSearchTimeout] = useState(null)
+  const [searchedResults, setSearchedResults] = useState([])
   const [events, setEvents] = useState([])
-  const handleSearchChange = (e) => {}
-  useEffect(() => {
-    const fetchEvents = async () => {
-      const response = await fetch('/api/event')
-      const data = await response.json()
-      setEvents(data)
+
+  const filterEvents = (query, target = null) => {
+    const regex = new RegExp(query, "i")
+    if(target && target === 'tag') {
+      return events.filter(
+        (item) => regex.test(item.tag)
+      )
     }
+    return events.filter(
+      (item) => 
+        regex.test(item.creator.username) || 
+        regex.test(item.tag) || 
+        regex.test(item.description) || 
+        regex.test(item.eventName)
+    )
+  }
+
+  const viewTag = (tagName) => {
+    setSearchText(tagName)
+    const searchResult = filterEvents(tagName, 'tag')
+    setSearchedResults(searchResult)
+  }
+
+  const viewProfile = () => {}
+
+  const handleSearchChange = (e) => {
+    clearTimeout(searchTimeout)
+    setSearchText(e.target.value)
+    setSearchTimeout(setTimeout(() => {
+      const searchResult = filterEvents(e.target.value)
+      setSearchedResults(searchResult)
+    }, 500))
+  }
+
+  const fetchEvents = async () => {
+    const response = await fetch('/api/event')
+    const data = await response.json()
+    setEvents(data)
+  }
+
+  useEffect(() => {
     fetchEvents()
   }, [])
   
@@ -43,11 +79,19 @@ const Feed = () => {
         className="search_input peer"
       />
     </form>
-    <EventCardList 
-      data={events}
-      viewTag={() => {}}
-      viewProfile={() => {}}
-    />
+    {searchText ? (
+      <EventCardList 
+        data={searchedResults}
+        viewTag={viewTag}
+        viewProfile={viewProfile}
+      />
+    ) : (
+      <EventCardList 
+        data={events}
+        viewTag={viewTag}
+        viewProfile={viewProfile}
+      />
+    )}
   </section>
   )
 }
