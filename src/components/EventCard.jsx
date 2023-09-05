@@ -41,7 +41,7 @@ const EventCard = ({ event, viewTag, viewProfile, handleEdit, handleDelete }) =>
       </p>
       <p 
         className="font-montserrat text-sm blue_gradient cursor-pointer"
-        onClick={() => viewTag && handleTagClick(event.tag)}
+        onClick={() => viewTag && viewTag(event.tag)}
       >
         {event.tag}
       </p>
